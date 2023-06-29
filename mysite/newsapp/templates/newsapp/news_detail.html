@@ -1,0 +1,15 @@
+{% extends 'shopapp/base.html' %}
+
+{% block title %}
+  {{ object.title }}
+{% endblock %}
+
+{% block body %}
+  <h1>{{ object.title }}</h1>
+  <p>{{ object.description }}</p>
+
+  <div>
+    <a href="{% url 'housing_list' %}"
+    >Housing list</a>
+  </div>
+{% endblock %}

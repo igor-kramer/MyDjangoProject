@@ -1,0 +1,37 @@
+{% extends 'newsapp/base.html' %}
+
+{% block title %}
+  Housing list
+{% endblock %}
+
+{% block body %}
+  <h1>List of accommodations:</h1>
+  {% if object_list %}
+    <div>
+      {% for housing in object_list %}
+        <h2>Housing №{{ housing.pk }}</h2>
+        <div>
+          <div>
+            <p>Housing type: {{ housing.housing_type.title }}</p>
+            <p>{{ housing.housing_type.info }}</p>
+          </div>
+          <p>Number of room: {{ housing.number_of_room.quantity }}</p>
+          <p>Address: {{ housing.address }}</p>
+          <p>Square: {{ housing.square }}</p>
+        </div>
+        <br>
+      {% endfor %}
+    </div>
+  {% else %}
+    <h3>No housing yet</h3>
+  {% endif %}
+
+  <div>
+    <a href="{% url 'contacts' %}"
+    >Contacts</a>
+  </div>
+  <div>
+    <a href="{% url 'about_us' %}"
+    >About us</a>
+  </div>
+{% endblock %}

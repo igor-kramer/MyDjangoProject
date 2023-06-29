@@ -1,0 +1,21 @@
+{% extends 'newsapp/base.html' %}
+
+{% block title %}
+  News
+{% endblock %}
+
+{% block body %}
+  <h1>News:</h1>
+  {% if object_list %}
+    <div>
+      {% for new in object_list %}
+        <h2><a href="{% url 'housing_detail' pk=new.pk %}"
+          >{{ new.title }}</a></h2>
+        <p>{{ new.text }}</p>
+        <br>
+      {% endfor %}
+    </div>
+  {% else %}
+    <h3>No news yet</h3>
+  {% endif %}
+{% endblock %}

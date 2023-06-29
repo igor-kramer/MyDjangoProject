@@ -1,0 +1,37 @@
+[
+  {
+    "model": "newsapp.numberofrooms",
+    "pk": 1,
+    "fields": {
+      "quantity": 1
+    }
+  },
+  {
+    "model": "newsapp.numberofrooms",
+    "pk": 2,
+    "fields": {
+      "quantity": 2
+    }
+  },
+  {
+    "model": "newsapp.numberofrooms",
+    "pk": 3,
+    "fields": {
+      "quantity": 3
+    }
+  },
+  {
+    "model": "newsapp.numberofrooms",
+    "pk": 4,
+    "fields": {
+      "quantity": 4
+    }
+  },
+  {
+    "model": "newsapp.numberofrooms",
+    "pk": 5,
+    "fields": {
+      "quantity": 5
+    }
+  }
+]

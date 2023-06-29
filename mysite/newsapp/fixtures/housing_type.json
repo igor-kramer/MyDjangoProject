@@ -1,0 +1,18 @@
+[
+  {
+    "model": "newsapp.housingtype",
+    "pk": 1,
+    "fields": {
+      "title": "Apartment",
+      "info": "This is apartament"
+    }
+  },
+  {
+    "model": "newsapp.housingtype",
+    "pk": 2,
+    "fields": {
+      "title": "A private house",
+      "info": "This is a private house"
+    }
+  }
+]

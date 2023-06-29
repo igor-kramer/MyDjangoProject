@@ -1,0 +1,42 @@
+{% extends 'shopapp/base.html' %}
+
+{% load i18n %}
+
+{% block title %}
+  {% translate 'Product' %} #{{ product.pk }}
+{% endblock %}
+
+{% block body %}
+  <h1>{% translate 'Product' %} <strong>{{ product.name }}</strong></h1>
+  <div>
+    <div>{% translate 'Description' %}: <em>{{ product.description }}</em></div>
+    <div>{% translate 'Price' %}: <em>{{ product.price }}</em></div>
+    <div>{% translate 'Discount' %}: <em>{{ product.discount }}</em></div>
+    <div>{% translate 'Archived' %}: <em>{{ product.archived }}</em></div>
+  </div>
+  <div>
+    {% if product.created_by == request.user %}
+      {% url 'shopapp:product_update' pk=product.pk as update_product_url %}
+      {% blocktranslate %}
+        <a href="{{ update_product_url }}"
+        >Update product</a>
+      {% endblocktranslate %}
+    {% endif %}
+  </div>
+  <div>
+    {% if perms.shopapp.delete_product %}
+      {% url 'shopapp:product_delete' pk=product.pk as delete_product_url %}
+      {% blocktranslate %}
+        <a href="{{ delete_product_url }}"
+        >Archive product</a>
+      {% endblocktranslate %}
+    {% endif %}
+  </div>
+  <div>
+    {% url 'shopapp:products_list' as products_list_url %}
+    {% blocktranslate %}
+      <a href="{{ products_list_url }}"
+      >Back to products list</a>
+    {% endblocktranslate %}
+  </div>
+{% endblock %}

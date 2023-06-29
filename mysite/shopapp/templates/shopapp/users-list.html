@@ -1,0 +1,22 @@
+{% extends 'shopapp/base.html' %}
+
+{% block title %}
+  Users list
+{% endblock %}
+
+{% block body %}
+  <h1>Users:</h1>
+  {% if object_list %}
+    <div>
+      {% for user in object_list %}
+        <div>
+          <p><a href="{% url 'shopapp:user_orders' pk=user.pk %}"
+          ># {% firstof user.first_name user.username %}</a></p>
+        </div>
+      {% endfor %}
+
+    </div>
+  {% else %}
+    <h3>No users yet</h3>
+  {% endif %}
+{% endblock %}
