@@ -2,7 +2,7 @@ FROM python:3.10.6
 
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /var/django-app
+WORKDIR /app
 
 COPY requirements.txt requirements.txt
 
@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 
 COPY mysite .
 
-CMD ["python", "manage.py", "runserver"]
+CMD ["gunicorn", "mysite/wsgi:application", "--bind", "0.0.0.0:8000"]
