@@ -1,6 +1,14 @@
 version: "3.9"
 
 services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=django_prod
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=qwerty.123
   app:
     build:
       dockerfile: ./Dockerfile
@@ -20,7 +28,13 @@ services:
         max-file: "10"
         max-size: "200k"
     volumes:
-      - ./mysite/database:/app/database
+      - .:/code
+    environment:
+      - POSTGRES_NAME=django_prod
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=qwerty.123
+    depends_on:
+      - db
   grafana:
     image: grafana/grafana:9.2.15
     environment:
